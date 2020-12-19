@@ -23,6 +23,8 @@ setup(
     entry_points={
         'intake.drivers': [
             'sdf = intake_rdkit.sdf:SDFSource',
+            'smiles = intake_rdkit.smiles:SmilesSource',
+
         ]
     },
     package_data={'': ['*.csv', '*.yml', '*.html']},
