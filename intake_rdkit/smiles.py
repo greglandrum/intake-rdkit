@@ -19,12 +19,14 @@ class SmilesSource(intake.source.base.DataSource):
     partition_access = True
     suppl_factory = Chem.SmilesMolSupplier
     
-    def __init__(self, filename, metadata=None, nPartitions=1, smilesColumn='smiles', **kwargs):
+    def __init__(self, filename, metadata=None, nPartitions=1, smilesColumn='smiles', 
+        useSmarts=False, **kwargs):
         super(SmilesSource, self).__init__(
             metadata=metadata
         )
         self._fname = filename
         self._smilesColumn = smilesColumn
+        self._useSmarts = useSmarts
         self._supplkwargs = kwargs
         # this is, hopefully, for future use:
         self._nPartitions = nPartitions
@@ -56,7 +58,10 @@ class SmilesSource(intake.source.base.DataSource):
         res = [] 
         for idx in range(start,end):
             row = df.iloc[idx]
-            m = Chem.MolFromSmiles(row[self._smilesColumn])
+            if not self._useSmarts:
+                m = Chem.MolFromSmiles(row[self._smilesColumn])
+            else:
+                m = Chem.MolFromSmarts(row[self._smilesColumn])
             if m is not None:
                 nrow = {'mol':m}
                 for k in self._colNames:
