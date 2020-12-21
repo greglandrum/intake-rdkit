@@ -6,7 +6,7 @@ This adds support for a couple of chemistry datatypes to [intake](https://intake
 
 You'll need to have both intake and the rdkit installed in your environment:
 ```
-conda install -c conda-forge intake rdkit`
+conda install -c conda-forge intake rdkit
 ```
 
 And then you can `pip install` intake-rdkit directly from this repo:
