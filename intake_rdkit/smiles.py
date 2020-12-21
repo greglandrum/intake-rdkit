@@ -34,7 +34,7 @@ class SmilesSource(intake.source.base.DataSource):
     def _get_schema(self):
         " reads property names from the first molecule and uses those "
         # FIX handle error if the first molecule doesn't exist
-        df = pd.read_csv(self._fname,nrows=1,header=0,**self._supplkwargs)
+        df = pd.read_csv(self._fname,nrows=1,**self._supplkwargs)
         dt = {'mol':'O'}
         for pn,pv in zip(df.columns,df.iloc[0]):
             dt[pn] = np.dtype(type(pv)).name
