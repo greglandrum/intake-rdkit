@@ -1,0 +1,27 @@
+metadata:
+  version: 1
+  creator: 
+    name: greg landrum
+    email: greg.landrum@gmail.com
+
+  summary: |
+    Collection of testing datasets for the intake-rdkit package
+
+
+sources:
+  first_200_csv:
+    description: "CSV version of the first_200 files"
+    args:
+      filename: '{{ CATALOG_DIR }}/first_200.tpsa.csv'
+      smilesColumn: 0
+      header: None
+    driver: intake_rdkit.smiles.SmilesSource
+  first_200_csv_gz:
+    description: "CSV.gz version of the first_200 files"
+    args:
+      filename: '{{ CATALOG_DIR }}/first_200.tpsa.csv.gz'
+      smilesColumn: 0
+      header: None
+    driver: intake_rdkit.smiles.SmilesSource
+
+
