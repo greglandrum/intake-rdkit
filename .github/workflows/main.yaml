@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: ${{ matrix.CONDA_ENV }}-pytest
+    name: ${{ matrix.os }}-${{ matrix.CONDA_ENV }}-pytest
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
