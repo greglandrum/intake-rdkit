@@ -30,3 +30,20 @@ class TestCase(unittest.TestCase):
             self.assertEqual(len(df), 200)
             self.assertEqual(Chem.MolToSmiles(df.iloc[0]['mol']),
                              'CC1=CC(=O)C=CC1=O')
+            self.assertEqual((df.iloc[0][1]), 122.12344)
+
+    def test_catalog(self):
+        fn = Path(__file__).parent / 'data' / 'testing_data.yaml'
+        ctl = intake.open_catalog(str(fn))
+        for dsname in ('first_200_csv', 'first_200_csv_gz'):
+            df = ctl[dsname].read()
+            self.assertEqual(len(df), 200)
+            self.assertEqual(Chem.MolToSmiles(df.iloc[0]['mol']),
+                             'CC1=CC(=O)C=CC1=O')
+            self.assertEqual((df.iloc[0][1]), 34.14)
+        for dsname in ('first_200_sdf', 'first_200_sdf_gz'):
+            df = ctl[dsname].read()
+            self.assertEqual(len(df), 200)
+            self.assertEqual(Chem.MolToSmiles(df.iloc[0]['mol']),
+                             'CC1=CC(=O)C=CC1=O')
+            self.assertEqual((df.iloc[0][1]), 122.12344)

@@ -12,7 +12,7 @@ INSTALL_REQUIRES = ['intake >=0.5.2']
 
 setup(
     name='intake-rdkit',
-    version="0.1.0",
+    version="0.2.0",
     description='rdkit plugins for Intake',
     url='https://github.com/greglandrum/intake-rdkit',
     maintainer='greg landrum',
@@ -24,7 +24,6 @@ setup(
         'intake.drivers': [
             'sdf = intake_rdkit.sdf:SDFSource',
             'smiles = intake_rdkit.smiles:SmilesSource',
-
         ]
     },
     package_data={'': ['*.csv', '*.yml', '*.html']},
@@ -32,4 +31,5 @@ setup(
     install_requires=INSTALL_REQUIRES,
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
-    zip_safe=False, )
+    zip_safe=False,
+)

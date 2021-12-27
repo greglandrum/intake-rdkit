@@ -23,5 +23,16 @@ sources:
       smilesColumn: 0
       header: None
     driver: intake_rdkit.smiles.SmilesSource
+  first_200_sdf:
+    description: "SDF version of the first_200 files"
+    args:
+      filename: '{{ CATALOG_DIR }}/first_200.props.sdf'
+    driver: intake_rdkit.sdf.SDFSource
+  first_200_sdf_gz:
+    description: "SDF.gz version of the first_200 files"
+    args:
+      filename: '{{ CATALOG_DIR }}/first_200.props.sdf.gz'
+    driver: intake_rdkit.sdf.SDFSource
+
 
 
