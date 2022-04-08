@@ -11,7 +11,7 @@ conda install -c conda-forge intake rdkit
 
 And then you can `pip install` intake-rdkit directly from this repo:
 ```
-python -m pip install git+git://github.com/greglandrum/intake-rdkit.git
+python -m pip install git+https://github.com/greglandrum/intake-rdkit.git
 ```
 
 ## Usage
